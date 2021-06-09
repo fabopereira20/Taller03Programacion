@@ -1,0 +1,6 @@
+Avances del desarrollo:
+- Se actualizó el diagrama para que DatosComp tuviera una relación de asociación con Computador (multiplicidad de 1, unidireccional), y así acceder a los datos de Computador
+- El primer método de DatosComp se simplificó para usar el método toString de Computador y MemoriaRAM
+- Se agregó otro método complementario para la edición de datos de Computador
+
+Espero que estos cambios no afecten mucho la calificación.
