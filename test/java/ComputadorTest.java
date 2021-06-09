@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,19 +10,34 @@ class ComputadorTest {
 
     @BeforeAll
     static void beforeAll() {
-        miComputador = new Computador("Apple", "HP", miMemoria);
+        miMemoria = new MemoriaRAM("DDR2", 0, 0);
+        miComputador = new Computador("", "", miMemoria);
     }
 
     @Test
-    void getMarca(){
-        String esperado = "Apple";
+    @DisplayName("Cambiar y mostrar marca")
+    void manejarMarca(){
+        String esperado = "Linux";
+        miComputador.setMarca(esperado);
         assertEquals(esperado, miComputador.getMarca());
     }
 
     @Test
-    void getModelo(){
-        String esperado = "HP";
+    @DisplayName("Cambiar y mostrar modelo")
+    void manejarModelo(){
+        String esperado = "Acer";
+        miComputador.setModelo(esperado);
         assertEquals(esperado, miComputador.getModelo());
+    }
+
+    @Test
+    @DisplayName("Imprimir datos de computador")
+    void toStringTest(){
+        String esperado = "*Datos del computador:\n" +
+                "Marca: " + miComputador.getMarca() +
+                "\nModelo: " + miComputador.getModelo() +
+                "\nMemoria: " + miMemoria.toString();
+        assertEquals(esperado, miComputador.toString());
     }
 
 }
